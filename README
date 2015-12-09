@@ -1,13 +1,29 @@
+Image Sharing
+
+Ephemeral way to share your pictures
+
+using:
+NodeJs
+ExpressJs
+SocketIO
+
+WIP - help us on our chat
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TwanoO67/image-sharing?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 Installation
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 
 nvm install 4
-
 nvm use 4
 
-npm install --save socket.io
-npm install --save express
+npm install
+
+
+test
+node index.js
+node client.js mon_album
+ouverture de localhost:7000
 
 TODO:
 http://socket.io/get-started/chat/ 
