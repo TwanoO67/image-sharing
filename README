@@ -10,6 +10,26 @@ SocketIO
 WIP - help us on our chat
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TwanoO67/image-sharing?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+TODO Liste:
+
+- Envoyer les fichiers en stream depuis le client.js au serveur
+- Stocker les fichiers sur le serveur dans un dossier lié à l'id et par date
+- Servir le fichier au client html par le serveur en express
+- Ajouter un ID aléatoire au client.js
+- Demander au client html l'id qu'il veut intéroger
+- Enjoliver la page index.html
+- Ajouter une option de mot de passe sur l'album dans client.js
+- Ajouter une interface sur le client.js grace a NodeWebkit, avec un input de selection de dossier
+- Faire un bouton de trail icon (win/mac) pour couper le client.js
+- Packager le client en version mac et windows
+- Mise à dispo sur les-photos.de ??? :D
+- Script de nettoyage pour les photos sur le serveur (par date de dernier hit)
+- Retaillage des images à la volée
+- Mise a disposition de Zip pour l'album
+- Intégration de lien de partage facebook, twitter etc...
+
+
+
 Installation
 
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
@@ -26,4 +46,4 @@ node client.js mon_album
 ouverture de localhost:7000
 
 TODO:
-http://socket.io/get-started/chat/ 
+http://socket.io/get-started/chat/
