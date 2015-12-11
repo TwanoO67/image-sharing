@@ -26,7 +26,7 @@ function verifieAttente(file){
         }
         else {
           console.log('Envoi du fichier:', file);
-          unset listeDattente[i];
+          listeDattente.splice(i, 1);
         }
       });
     }
