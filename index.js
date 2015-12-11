@@ -80,7 +80,7 @@ function getFile(res,id,file){
       else {
         console.log("Demande async à "+id+" pour le fichier "+req.param.filename)
         //demande du fichier
-        io.in(req.param.id).emit.('getFile',req.param.filename);
+        io.in(req.param.id).emit('getFile',req.param.filename);
 
       }
       });
