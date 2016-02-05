@@ -2,6 +2,13 @@ Image Sharing
 
 Ephemeral way to share your pictures
 
+Exemple d'utilisation:
+
+lancer le serveur: npm start
+lancer un navigateur: localhost:7000
+lancer un client qui partage des albums: node client.js mon_nom
+sur la page web, taper rechercher par nom de user
+
 using:
 NodeJs
 ExpressJs

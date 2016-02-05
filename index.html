@@ -14,31 +14,54 @@
     </style>
   </head>
   <body>
-    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/lib/socket.io-1.4.5.js"></script>
+    <script src="/lib/jquery.1.12.0.min.js"></script>
 
-  Image
+  Liste des Images
 
     <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Cherche Licos</button>
+      <input id="utilisateur" autocomplete="off" /><button>Recuperer la liste de l'utilisateur</button>
     </form>
 
     <script>
       var socket = io();
+
+      function calcUniqImageName(user,path){
+        var uid = 'image_'+user+'_'+path;
+        uid = uid.replace(".",'_');//suppression des points, non géré par jquery
+        return uid;
+      }
+
       $('form').submit(function(){
         console.log('submit');
-        socket.emit('getList', $('#m').val());
-        $('#m').val('');
+        socket.emit('getList', $('#utilisateur').val());
+        $('#utilisateur').val('');
         return false;
       });
 
-      socket.on('list', function(listeFichier){
-          console.log('receive get list');
+      socket.on('list', function(data){
+         console.log("reception d'une liste de fichier");
+         var listeFichier = data.list;
+         var user_id = data.user;
+
           for(var i = 0; i<listeFichier.length; i++){
-            $('#messages').append($('<li>').text(listeFichier[i]));
+            $('#messages').append('<li onclick="loadImage(\''+user_id+'\',\''+listeFichier[i]+'\')" >'+listeFichier[i]+'</li>' );
           }
       });
+
+      socket.on('serverHasLoadedImage', function(data){
+        var path = data.path;
+        var user = data.user;
+        console.log('receive serverHasLoadedImage '+user+" "+path);
+        $('#'+calcUniqImageName(user,path)).html('<img src="/image/'+user+'/'+path+'" width="100px" />' );
+      });
+
+      function loadImage(user,path){
+        console.log('emit serverLoadImage');
+        socket.emit('serverLoadImage', path);
+        $('#messages').append('<div id="'+calcUniqImageName(user,path)+'" >Chargement en cours</div>' );
+      }
 
 
   </script>
